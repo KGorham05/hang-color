@@ -1,0 +1,29 @@
+body {
+    background-color: #00fff2
+}
+
+.wrapper {
+   max-width: 35vw;
+   max-height: 100vh; 
+   margin: auto;
+}
+
+.wrapper h1 {
+    text-align: center;
+}
+
+.game-board {
+    margin: auto;
+    margin-top: 10vw;
+    /* text-align: center; */
+}
+
+#score-board {
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#score-board h2 {
+    margin-left: 15px;
+}
+
