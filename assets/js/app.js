@@ -32,7 +32,43 @@ var wordGuessGame = {
         },
         khaki: {
             hex: 'F0E68C'
+        },
+        lavender: {
+            hex: 'E6E6FA'
+        },
+        violet: {
+            hex: 'EE82EE'
+        },
+        fuchsia: {
+            hex: 'FF00FF'
+        },
+        indigo: {
+            hex: '4B0082'
+        },
+        chartreuse: {
+            hex: '7FFF00'
+        },
+        olive: {
+            hex: '808000'
+        },
+        teal: {
+            hex: '008080'
+        },
+        cyan: {
+            hex: '00FFFF'
+        },
+        aquamarine: {
+            hex: '7FFFD4'
+        },
+        turquoise: {
+            hex: '40E0D0'
+        },
+        navy: {
+            hex: '000080'
         }
+
+        // add brown white and grey colors
+        // https://htmlcolorcodes.com/color-names/
     },
 
     // call this function when the page first loads. 
@@ -42,7 +78,7 @@ var wordGuessGame = {
         this.wordInPlay = objectKeys[Math.floor(Math.random() * objectKeys.length)];
         // split the word into individual letters
         this.lettersOfTheWord = this.wordInPlay.split("");
-        // display a _ for each letter in the word
+        // update background color css to wordInPlay
         
     },
     
@@ -104,5 +140,5 @@ document.onkeyup = function(event) {
         // pass the guessed letter into our updatePage function to run game logic
         wordGuessGame.updatePage(wordGuessGame.letterGuessed);
     }
-    
+
 };
