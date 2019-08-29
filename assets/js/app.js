@@ -123,7 +123,12 @@ var wordGuessGame = {
 
     // run this func to check for a wrong letter
     updateGuesses: function (letter) {
-
+        // check if we guessed this letter already
+        if ((this.guessedLetters.indexOf(letter) === -1) && 
+        // check if the letter is in the lettersOfTheWord array
+        (this.lettersOfTheWord.indexOf(letter) === -1)) {
+            console.log('wrong letter!')
+        }
     },
 
     // This function sets the initial guesses the user gets.
