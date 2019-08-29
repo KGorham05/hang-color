@@ -76,21 +76,42 @@ var wordGuessGame = {
         // pick a random word
         var objectKeys = Object.keys(this.wordsToPick);
         this.wordInPlay = objectKeys[Math.floor(Math.random() * objectKeys.length)];
+        console.log(this.wordInPlay);
         // split the word into individual letters
         this.lettersOfTheWord = this.wordInPlay.split("");
-        // update background color css to wordInPlay
 
+        // Build the view of the word - starts as blanks
+        this.rebuildWordView();
+
+        // update background color css to wordInPlay
+        document.body.style.background = `linear-gradient(to right, ${this.wordInPlay}, grey)`;
+        // TODO - Add a secondary color to each wordToPick, use that rather then grey for second gradient color
+
+        this.processUpdateTotalGuesses();
     },
 
     // call this function whenever a user guesses a letter...
     updatePage: function (letter) {
-
+        console.log(letter);
         // if the user has no guesses left, restart the game
-        //else
-        // check for and handle incorrect guesses
-        // check for and handle correct guesses
-        // rebuild the view of the word - 
-        // guessed letters are revealed, non guessed letters have a "_"
+        if (this.guessesLeft === 0) {
+            this.restartGame();
+        } else {
+            // check for and handle incorrect guesses
+            this.updateGuesses(letter);
+
+            // check for and handle correct guesses
+            this.updateMatchedLetters(letter);
+
+            // rebuild the view of the word - 
+            this.rebuildWordView();
+
+            // If the user wins, restart the game.
+            if (this.updateWins() === true) {
+                this.restartGame();
+            }
+        }
+
     },
 
     // This function sets the initial guesses the user gets
@@ -100,9 +121,20 @@ var wordGuessGame = {
 
     },
 
-    // run this func when a user guesses a wrong letter
+    // run this func to check for a wrong letter
     updateGuesses: function (letter) {
 
+    },
+
+    // This function sets the initial guesses the user gets.
+    processUpdateTotalGuesses: function () {
+        // The user will get more guesses the longer the word is.
+        this.totalGuesses = this.lettersOfTheWord.length + 5;
+        // Update the guesses left 
+        this.guessesLeft = this.totalGuesses;
+
+        // Render the guesses left to the page.
+        document.getElementById("guessesLeft").innerHTML = this.guessesLeft;
     },
 
     // run this function when a user guesses correctly
@@ -120,13 +152,13 @@ var wordGuessGame = {
     restartGame: function () {
         // reset global variables 
         this.wordInPlay = null,
-        this.lettersOfTheWord = [],
-        this.matchedLetters = [],
-        this.guessedLetters = [],
-        this.guessesLeft = 0,
-        this.totalGuesses = 0,
-        this.letterGuessed = null,
-        this.wins = 0,
+            this.lettersOfTheWord = [],
+            this.matchedLetters = [],
+            this.guessedLetters = [],
+            this.guessesLeft = 0,
+            this.totalGuesses = 0,
+            this.letterGuessed = null,
+            this.wins = 0
     },
 
     // function that checks to see if the user has won the game
@@ -144,7 +176,7 @@ document.onkeyup = function (event) {
     // check if the key pressed is a letter
     if (event.keyCode >= 49 && event.keyCode <= 90) {
         //capture the key pressed and make it lowercase
-        wordGuessGame.letterGuessed = event.key.toLocaleUpperCase();
+        wordGuessGame.letterGuessed = event.key.toLowerCase();
         // pass the guessed letter into our updatePage function to run game logic
         wordGuessGame.updatePage(wordGuessGame.letterGuessed);
     }
