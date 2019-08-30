@@ -88,6 +88,7 @@ var wordGuessGame = {
         // TODO - Add a secondary color to each wordToPick, use that rather then grey for second gradient color
 
         this.processUpdateTotalGuesses();
+        this.setInitialGuesses();
     },
 
     // call this function whenever a user guesses a letter...
@@ -117,6 +118,8 @@ var wordGuessGame = {
     // This function sets the initial guesses the user gets
     setInitialGuesses: function () {
         // set number of guesses equal to letters in the word + 5
+        this.guessesLeft = this.lettersOfTheWord.length + 5; 
+        console.log(this.guessesLeft + " 1");
         // display number of guesses on a page
 
     },
@@ -150,6 +153,7 @@ var wordGuessGame = {
     // builds the display of the word currently being guessed
     // ex. if the color is "salmon" it might display "S_lm_ _"
     rebuildWordView: function () {
+
 
     },
 
