@@ -158,12 +158,29 @@ var wordGuessGame = {
     // run this function when a user guesses correctly
     updateMatchedLetters: function (letter) {
 
+        // Loop through the letters of the solution
+        for (var i = 0; i < lettersOfTheWord.length; i++) {
+            // if the guessed letter is in the solution, and we haven't guessed it already
+            if ((letter === this.lettersOfTheWord[i]) && (this.matchedLetters.indexOf(letter) === -1)) {
+                // Push the newly guessed letter into the matchedLetters array. 
+                this.matchedLetters.push(letter);
+            } 
+        }
     },
 
     // builds the display of the word currently being guessed
     // ex. if the color is "salmon" it might display "S_lm_ _"
     rebuildWordView: function () {
+        // start with an empty string
+        var wordView = "";
 
+        // loop through the letters of the word we're trying to guess
+        for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+            // if the current letter has been guessed, display the letter.
+            if (this.matchedLetters.indexOf(this.matchedLetters[i]) !== -1)
+            // If it hasn't been guessed, display a "_" instead. 
+        }
+        
         
     },
 
