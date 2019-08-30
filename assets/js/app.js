@@ -119,9 +119,8 @@ var wordGuessGame = {
     setInitialGuesses: function () {
         // set number of guesses equal to letters in the word + 5
         this.guessesLeft = this.lettersOfTheWord.length + 5; 
-        console.log(this.guessesLeft + " 1");
-        // display number of guesses on a page
 
+        
     },
 
     // run this func to check for a wrong letter
@@ -130,7 +129,18 @@ var wordGuessGame = {
         if ((this.guessedLetters.indexOf(letter) === -1) && 
         // check if the letter is in the lettersOfTheWord array
         (this.lettersOfTheWord.indexOf(letter) === -1)) {
-            console.log('wrong letter!')
+            console.log('wrong letter!');
+
+            // Add the letter to the guessedLetters array.
+            this.guessedLetters.push(letter);
+            
+            // Decrement guessesLeft
+            this.guessesLeft--;
+
+            // Update guesses left and guessed letters on the DOM
+            document.getElementById('guessesLeft').textContent = this.guessesLeft;
+            document.getElementById('guessedLetters').textContent = this.guessedLetters.join(', ');
+
         }
     },
 
@@ -154,20 +164,21 @@ var wordGuessGame = {
     // ex. if the color is "salmon" it might display "S_lm_ _"
     rebuildWordView: function () {
 
-
+        
     },
 
     // function that restarts the game by resetting all of the variables. 
     restartGame: function () {
-        // reset global variables 
+        document.getElementById('guessedLetters').innerHTML = "";
+        // reset global variables    
         this.wordInPlay = null,
-            this.lettersOfTheWord = [],
-            this.matchedLetters = [],
-            this.guessedLetters = [],
-            this.guessesLeft = 0,
-            this.totalGuesses = 0,
-            this.letterGuessed = null,
-            this.wins = 0
+        this.lettersOfTheWord = [],
+        this.matchedLetters = [],
+        this.guessedLetters = [],
+        this.guessesLeft = 0,
+        this.totalGuesses = 0,
+        this.letterGuessed = null,
+        this.wins = 0
     },
 
     // function that checks to see if the user has won the game
