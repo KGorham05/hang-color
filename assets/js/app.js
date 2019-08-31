@@ -112,28 +112,27 @@ var wordGuessGame = {
                 this.restartGame();
             }
         }
-
     },
 
     // This function sets the initial guesses the user gets
     setInitialGuesses: function () {
         // set number of guesses equal to letters in the word + 5
-        this.guessesLeft = this.lettersOfTheWord.length + 5; 
+        this.guessesLeft = this.lettersOfTheWord.length + 5;
 
-        
+
     },
 
     // run this func to check for a wrong letter
     updateGuesses: function (letter) {
         // check if we guessed this letter already
-        if ((this.guessedLetters.indexOf(letter) === -1) && 
-        // check if the letter is in the lettersOfTheWord array
-        (this.lettersOfTheWord.indexOf(letter) === -1)) {
+        if ((this.guessedLetters.indexOf(letter) === -1) &&
+            // check if the letter is in the lettersOfTheWord array
+            (this.lettersOfTheWord.indexOf(letter) === -1)) {
             console.log('wrong letter!');
 
             // Add the letter to the guessedLetters array.
             this.guessedLetters.push(letter);
-            
+
             // Decrement guessesLeft
             this.guessesLeft--;
 
@@ -159,12 +158,12 @@ var wordGuessGame = {
     updateMatchedLetters: function (letter) {
 
         // Loop through the letters of the solution
-        for (var i = 0; i < lettersOfTheWord.length; i++) {
+        for (var i = 0; i < this.lettersOfTheWord.length; i++) {
             // if the guessed letter is in the solution, and we haven't guessed it already
             if ((letter === this.lettersOfTheWord[i]) && (this.matchedLetters.indexOf(letter) === -1)) {
                 // Push the newly guessed letter into the matchedLetters array. 
                 this.matchedLetters.push(letter);
-            } 
+            }
         }
     },
 
@@ -177,11 +176,17 @@ var wordGuessGame = {
         // loop through the letters of the word we're trying to guess
         for (var i = 0; i < this.lettersOfTheWord.length; i++) {
             // if the current letter has been guessed, display the letter.
-            if (this.matchedLetters.indexOf(this.matchedLetters[i]) !== -1)
+            if (this.matchedLetters.indexOf(this.matchedLetters[i]) !== -1) {
+                wordView += this.lettersOfTheWord[i];
+            }
             // If it hasn't been guessed, display a "_" instead. 
+            else {
+                wordView += "&nbsp;_&nbsp;";
+            }
         }
-        
-        
+
+        document.getElementById('currentWord').innerHTML = wordView;
+
     },
 
     // function that restarts the game by resetting all of the variables. 
@@ -189,21 +194,48 @@ var wordGuessGame = {
         document.getElementById('guessedLetters').innerHTML = "";
         // reset global variables    
         this.wordInPlay = null,
-        this.lettersOfTheWord = [],
-        this.matchedLetters = [],
-        this.guessedLetters = [],
-        this.guessesLeft = 0,
-        this.totalGuesses = 0,
-        this.letterGuessed = null,
-        this.wins = 0
+            this.lettersOfTheWord = [],
+            this.matchedLetters = [],
+            this.guessedLetters = [],
+            this.guessesLeft = 0,
+            this.totalGuesses = 0,
+            this.letterGuessed = null,
+            this.wins = 0
     },
 
     // function that checks to see if the user has won the game
     updateWins: function () {
+        var win;
 
-    },
+        // if we haven't guessed ANY letters, set win to false
+        if (this.matchedLetters.length === 0) {
+            win = false;
+        } else {
+            win = true;
+        };
+        // If a letter appears in the lettersOfTheWord array, but not in the matchedLetters array, set win to false.
+        // If we haven't guessed all the letters, we set win to false;
+        for (var i = 0; i < this.lettersOfTheWord.length; i++) {
+            if (this.matchedLetters.indexOf(this.lettersOfTheWord[i]) === -1) {
+                win = false;
+            }
+        }
 
-};
+        if (win) {
+
+            //increment wins
+            this.wins++;
+            //update wins on the page
+            document.getElementById('wins').textContent = wins;
+
+            //if we won, return true to trigger the restart of our game in the updatePage function. 
+            return true;
+        }
+        // if we did not win, return false to the updatePage function: The game continues!
+        return false;
+    }
+
+}
 
 // Set up the game on page load
 wordGuessGame.setupGame();
@@ -218,4 +250,4 @@ document.onkeyup = function (event) {
         wordGuessGame.updatePage(wordGuessGame.letterGuessed);
     }
 
-};
+}; 
