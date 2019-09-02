@@ -17,55 +17,72 @@ var wordGuessGame = {
             alt: 'ffc7b6'
         },
         crimson: {
-            hex: 'DC143C'
+            hex: 'DC143C',
+            alt: 'ef4e6e'
         },
         hotpink: {
-            hex: 'FF69B4'
+            hex: 'FF69B4',
+            alt: 'ffb6da'
         },
         tomato: {
-            hex: 'FF6347'
+            hex: 'FF6347',
+            alt: 'ffa494'
         },
         orange: {
-            hex: 'FFA500'
+            hex: 'FFA500',
+            alt: 'ffc04d'
         },
         gold: {
-            hex: 'FFD700'
+            hex: 'FFD700',
+            alt: 'ffe34d'
         },
         khaki: {
-            hex: 'F0E68C'
+            hex: 'F0E68C',
+            alt: 'f9f5d0'
         },
         lavender: {
-            hex: 'E6E6FA'
+            hex: 'E6E6FA',
+            alt: 'ffffff'
         },
         violet: {
-            hex: 'EE82EE'
+            hex: 'EE82EE',
+            alt: 'f7c5f7'
         },
         fuchsia: {
-            hex: 'FF00FF'
+            hex: 'FF00FF',
+            alt: 'ff4dff'
         },
         indigo: {
-            hex: '4B0082'
+            hex: '4B0082',
+            alt: '7700cf'
         },
         chartreuse: {
-            hex: '7FFF00'
+            hex: '7FFF00',
+            alt: 'a5ff4d'
         },
         olive: {
-            hex: '808000'
+            hex: '808000',
+            alt: 'cdcd00'
         },
         teal: {
-            hex: '008080'
+            hex: '008080',
+            alt: '00cdcd'
         },
         cyan: {
-            hex: '00FFFF'
+            hex: '00FFFF',
+            alt: '4dffff'
         },
         aquamarine: {
-            hex: '7FFFD4'
+            hex: '7FFFD4',
+            alt: 'ccffee'
         },
         turquoise: {
-            hex: '40E0D0'
+            hex: '40E0D0',
+            alt: '82ebe0'
         },
         navy: {
-            hex: '000080'
+            hex: '000080',
+            alt: '0000cd'
         },
 
         // add brown white and grey colors
@@ -168,7 +185,7 @@ var wordGuessGame = {
             }
             // If it hasn't been guessed, display a "_" instead.
             else {
-                wordView += "&nbsp;_&nbsp;";
+                wordView += "_&nbsp;";
             }
         }
 

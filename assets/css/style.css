@@ -1,6 +1,6 @@
 
 .wrapper {
-   max-width: 35vw;
+   max-width: 44vw;
    max-height: 100vh; 
    margin: auto;
 }
@@ -13,14 +13,24 @@
     margin: auto;
     margin-top: 10vw;
     /* text-align: center; */
+    font-family: 'Oswald', sans-serif;
+}
+
+.game-board h1 {
+    font-size: 4.5em;
+    color: white;
+    text-shadow: 3px 3px 4px rgba(150, 150, 150, 1); 
 }
 
 #score-board {
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 15px;
 }
 
 #score-board h2 {
     margin-left: 15px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(150, 150, 150, 1); 
+
 }
 
