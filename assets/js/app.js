@@ -14,75 +14,75 @@ var wordGuessGame = {
     wordsToPick: {
         salmon: {
             hex: 'CD5C5C',
-            alt: 'ffc7b6'
+            alt: 'ffeee9'
         },
         crimson: {
             hex: 'DC143C',
-            alt: 'ef4e6e'
+            alt: 'f594a7'
         },
         hotpink: {
             hex: 'FF69B4',
-            alt: 'ffb6da'
+            alt: 'ffe9f4'
         },
         tomato: {
             hex: 'FF6347',
-            alt: 'ffa494'
+            alt: 'ffe5e1'
         },
         orange: {
             hex: 'FFA500',
-            alt: 'ffc04d'
+            alt: 'ffdb9a'
         },
         gold: {
             hex: 'FFD700',
-            alt: 'ffe34d'
+            alt: 'ffef9a'
         },
         khaki: {
             hex: 'F0E68C',
-            alt: 'f9f5d0'
+            alt: 'ffffff'
         },
         lavender: {
-            hex: 'E6E6FA',
+            hex: 'bcbcf2',
             alt: 'ffffff'
         },
         violet: {
             hex: 'EE82EE',
-            alt: 'f7c5f7'
+            alt: 'fdf2fd'
         },
         fuchsia: {
             hex: 'FF00FF',
-            alt: 'ff4dff'
+            alt: 'ff9aff'
         },
         indigo: {
             hex: '4B0082',
-            alt: '7700cf'
+            alt: '9f1dff'
         },
         chartreuse: {
             hex: '7FFF00',
-            alt: 'a5ff4d'
+            alt: 'ccff9a'
         },
         olive: {
             hex: '808000',
-            alt: 'cdcd00'
+            alt: 'ffff1b'
         },
         teal: {
             hex: '008080',
-            alt: '00cdcd'
+            alt: '1bffff'
         },
         cyan: {
             hex: '00FFFF',
-            alt: '4dffff'
+            alt: '9affff'
         },
         aquamarine: {
             hex: '7FFFD4',
-            alt: 'ccffee'
+            alt: 'ffffff'
         },
         turquoise: {
             hex: '40E0D0',
-            alt: '82ebe0'
+            alt: 'c4f6f0'
         },
         navy: {
             hex: '000080',
-            alt: '0000cd'
+            alt: '1b1bff'
         },
 
         // add brown white and grey colors
